@@ -10,7 +10,6 @@ class ProductListTest(APITestCase):
         self.store = StoreFactory()
         ProductFactory.create_batch(5, store=self.store)
 
-
         self.headers = {"Api-Secret": self.store.api_secret}
         self.complete_url = reverse("app_commerce:product-list-create", args=[self.store.slug])
 
@@ -18,8 +17,8 @@ class ProductListTest(APITestCase):
         response = self.client.get(self.complete_url, headers=self.headers)
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(response.data["count"] , 5)
-        self.assertEqual(len(response.data["results"][0]) , 5)
+        self.assertEqual(response.data["count"], 5)
+        self.assertEqual(len(response.data["results"][0]), 5)
 
 
 class ProductCreateTest(APITestCase):
@@ -28,19 +27,14 @@ class ProductCreateTest(APITestCase):
 
         self.headers = {"Api-Secret": self.store.api_secret}
         self.complete_url = reverse("app_commerce:product-list-create", args=[self.store.slug])
-        self.payload = {
-            "name": "Product Unittest",
-            "description": "like new",
-            "price": 10000,
-            "stock": 50
-        }
+        self.payload = {"name": "Product Unittest", "description": "like new", "price": 10000, "stock": 50}
 
     def test_success(self):
         response = self.client.post(self.complete_url, data=self.payload, headers=self.headers)
 
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-        self.assertEqual(len(response.data) , 5)
-        self.assertEqual(response.data["name"] , "Product Unittest")
+        self.assertEqual(len(response.data), 5)
+        self.assertEqual(response.data["name"], "Product Unittest")
 
 
 class ProductDetailTest(APITestCase):
@@ -55,8 +49,8 @@ class ProductDetailTest(APITestCase):
         response = self.client.get(self.complete_url, headers=self.headers)
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(len(response.data) , 5)
-        self.assertEqual(response.data["name"] , "Product Unittest Detail")
+        self.assertEqual(len(response.data), 5)
+        self.assertEqual(response.data["name"], "Product Unittest Detail")
 
 
 class ProductUpdateTest(APITestCase):
@@ -66,16 +60,11 @@ class ProductUpdateTest(APITestCase):
 
         self.headers = {"Api-Secret": self.store.api_secret}
         self.complete_url = reverse("app_commerce:product-manage", args=[self.store.slug, self.product.product_id])
-        self.payload = {
-            "name": "Product Unittest Updated",
-            "description": "like new",
-            "price": 10000,
-            "stock": 50
-        }
+        self.payload = {"name": "Product Unittest Updated", "description": "like new", "price": 10000, "stock": 50}
 
     def test_success(self):
         response = self.client.patch(self.complete_url, data=self.payload, headers=self.headers)
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(len(response.data) , 5)
-        self.assertEqual(response.data["name"] , "Product Unittest Updated")
+        self.assertEqual(len(response.data), 5)
+        self.assertEqual(response.data["name"], "Product Unittest Updated")

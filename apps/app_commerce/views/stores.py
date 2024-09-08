@@ -8,7 +8,7 @@ from apps.app_commerce.permissions import IsAuthenticatedAppChannel, IsAuthentic
 from apps.app_commerce.serializers.stores import ChannelSyncSerializer, MyStoreSerializer
 
 
-class MixinStore():
+class MixinStore:
     def get_store(self):
         store = Store.objects.filter(slug=self.kwargs["slug"]).first()
         if not store:
@@ -34,4 +34,3 @@ class ChannelSync(generics.CreateAPIView):
         data = serializer.save()
 
         return Response(data, status=status.HTTP_200_OK)
-

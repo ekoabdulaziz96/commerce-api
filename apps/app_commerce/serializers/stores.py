@@ -17,7 +17,6 @@ class MyStoreSerializer(BaseModelSerializer):
 
 
 class StoreSerializer(MyStoreSerializer):
-
     class Meta:
         model = Store
         fields = ["name", "slug"]

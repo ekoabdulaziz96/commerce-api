@@ -16,11 +16,11 @@ class ChannelSyncTest(APITestCase):
             "store_slug": self.store.slug,
             "slug": "test_sync_marketplace",
             "name": "test sync marketplace",
-            "types": "marketplace"
+            "types": "marketplace",
         }
 
     def test_success(self):
-        response = self.client.post(self.complete_url, data= self.payload, headers=self.headers)
+        response = self.client.post(self.complete_url, data=self.payload, headers=self.headers)
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(len(response.data), 4)
@@ -28,7 +28,7 @@ class ChannelSyncTest(APITestCase):
 
         with self.subTest("check update for exist channel"):
             self.payload["name"] = "updated"
-            response = self.client.post(self.complete_url, data= self.payload, headers=self.headers)
+            response = self.client.post(self.complete_url, data=self.payload, headers=self.headers)
 
             self.assertEqual(response.status_code, status.HTTP_200_OK)
             self.assertEqual(len(response.data), 4)

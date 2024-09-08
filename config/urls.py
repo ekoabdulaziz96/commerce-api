@@ -17,7 +17,6 @@ urlpatterns += [
     # User auth
     # path("api/", include("djoser.urls")),  # Basic authentication
     # path("api/auth/", include("apps.app_users.urls.auths")),
-
     # schema & docs
     path("api/schema/", SpectacularAPIView.as_view(), name="api-schema"),
     path(
@@ -25,7 +24,6 @@ urlpatterns += [
         SpectacularSwaggerView.as_view(url_name="api-schema"),
         name="api-docs",
     ),
-
     # Your stuff: custom urls includes go here
     path("", include("apps.app_users.urls", namespace="app_users")),
     path("", include("apps.app_commerce.urls", namespace="app_commerce")),

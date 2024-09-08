@@ -16,7 +16,7 @@ class ProductSerializer(BaseModelSerializer):
 
     class Meta:
         model = Product
-        fields = ["product_id","name", "description", "price", "stock"]
+        fields = ["product_id", "name", "description", "price", "stock"]
 
     def save(self, **kwargs):
         if not self.instance:
@@ -26,7 +26,6 @@ class ProductSerializer(BaseModelSerializer):
 
 
 class SimpleProductSerializer(ProductSerializer):
-
     class Meta:
         model = Product
         fields = ["product_id", "name", "description"]
@@ -69,10 +68,7 @@ class DeliverySerializer(BaseModelSerializer):
 
     class Meta:
         model = Delivery
-        fields = [
-            "expedition", "receipt_number", "address",
-            "status", "types"
-        ]
+        fields = ["expedition", "receipt_number", "address", "status", "types"]
 
 
 class OrderSerializer(BaseModelSerializer):
@@ -99,8 +95,4 @@ class OrderDetailSerializer(BaseModelSerializer):
 
     class Meta:
         model = Order
-        fields = [
-            "channel",
-            "items", "deliveries",
-            "order_id", "total_amount", "status"
-        ]
+        fields = ["channel", "items", "deliveries", "order_id", "total_amount", "status"]

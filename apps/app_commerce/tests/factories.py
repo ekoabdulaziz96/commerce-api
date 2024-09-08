@@ -28,8 +28,8 @@ class ProductFactory(DjangoModelFactory):
     store = SubFactory(StoreFactory)
     name = Faker("name")
     description = Faker("sentence")
-    price = fuzzy.FuzzyChoice(choices=[price for price in (1000,1000000, 500)])
-    stock = fuzzy.FuzzyChoice(choices=[price for price in (10,100)])
+    price = fuzzy.FuzzyChoice(choices=[price for price in (1000, 1000000, 500)])
+    stock = fuzzy.FuzzyChoice(choices=[price for price in (10, 100)])
 
     class Meta:
         model = Product
@@ -65,4 +65,3 @@ class DeliveryFactory(DjangoModelFactory):
 
     class Meta:
         model = Delivery
-

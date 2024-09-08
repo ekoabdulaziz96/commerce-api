@@ -59,7 +59,10 @@ class ChannelAdmin(admin.ModelAdmin):
 
 class ProductAdmin(admin.ModelAdmin):
     list_display = ("display_store", "name", "price", "stock")
-    search_fields = ("product_id", "name",)
+    search_fields = (
+        "product_id",
+        "name",
+    )
     readonly_fields = ("product_id",)
     ordering = ["-created_at"]
 
@@ -72,7 +75,7 @@ class ProductAdmin(admin.ModelAdmin):
 class OrderAdmin(admin.ModelAdmin):
     list_display = ("display_store", "display_channel", "order_id", "total_amount", "status")
     search_fields = ("channel__store__name", "channel__name", "channel__slug", "order_id", "status")
-    readonly_fields = ("order_id", "channel",  "total_amount")
+    readonly_fields = ("order_id", "channel", "total_amount")
     ordering = ["-created_at"]
 
     def has_add_permission(self, request):
@@ -117,7 +120,11 @@ class OrderItemAdmin(admin.ModelAdmin):
 
 class DeliveryAdmin(admin.ModelAdmin):
     list_display = ("display_order", "expedition", "receipt_number", "status", "types")
-    search_fields = ("order__order_id", "expedition", "receipt_number",)
+    search_fields = (
+        "order__order_id",
+        "expedition",
+        "receipt_number",
+    )
     ordering = ["-created_at"]
 
     def has_add_permission(self, request):

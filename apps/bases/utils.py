@@ -16,5 +16,3 @@ def create_slug(name, model):
         i += 1
 
     return slug
-
-

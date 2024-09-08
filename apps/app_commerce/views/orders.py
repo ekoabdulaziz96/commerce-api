@@ -29,9 +29,7 @@ class ProductListCreate(generics.ListCreateAPIView, MixinStore):
     def create(self, request, *args, **kwargs):
         store = self.get_store()
 
-        serializer = self.get_serializer(
-            data=request.data, context={"request": request, "store": store}
-        )
+        serializer = self.get_serializer(data=request.data, context={"request": request, "store": store})
         serializer.is_valid(raise_exception=True)
 
         serializer.save()
@@ -67,7 +65,6 @@ class OrderList(generics.ListAPIView, MixinStore):
     pagination_class = OrderPagination
     ordering = ("-created_at",)
     search_fields = ["order_id"]
-
 
     def get_queryset(self):
         store = self.get_store()

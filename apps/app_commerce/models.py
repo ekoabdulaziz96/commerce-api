@@ -12,7 +12,6 @@ class Store(SafeDeleteModel):
     slug = models.SlugField(unique=True)
     api_secret = models.CharField(max_length=100, unique=True)
 
-
     class Meta:
         db_table = "app_commerce_stores"
 
@@ -46,9 +45,9 @@ class StoreUser(BaseModel):
 
 class Channel(SafeDeleteModel):
     TYPE_CHOICES = (
-        ('marketplace', 'Marketplace'),
-        ('shopify', 'Shopify'),
-        ('pos', 'POS'),
+        ("marketplace", "Marketplace"),
+        ("shopify", "Shopify"),
+        ("pos", "POS"),
     )
     store = models.ForeignKey(Store, on_delete=models.CASCADE, related_name="store_channels")
     name = models.CharField(max_length=255)
@@ -81,7 +80,7 @@ class Order(BaseModel):
         ("refund", "Refund"),
     ]
     channel = models.ForeignKey(Channel, on_delete=models.CASCADE, related_name="channel_orders")
-    order_id = models.CharField(max_length=125, unique=True)   # from order number in specific channel
+    order_id = models.CharField(max_length=125, unique=True)  # from order number in specific channel
     total_amount = models.DecimalField(max_digits=10, decimal_places=2)
     status = models.CharField(max_length=50, choices=STATUS_CHOICES)
 

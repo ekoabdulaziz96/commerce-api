@@ -14,6 +14,7 @@ class IsAuthenticatedStore(BasePermission):
 
         return Store.objects.filter(slug=slug, api_secret=api_secret).exists()
 
+
 class IsAuthenticatedAppChannel(BasePermission):
     message = PermissionDenied.default_detail
 

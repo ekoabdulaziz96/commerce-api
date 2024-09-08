@@ -15,4 +15,5 @@ class AuthApiSecret:
         except VerifyMismatchError:
             return False
 
+
 auth_api_secret = AuthApiSecret()
