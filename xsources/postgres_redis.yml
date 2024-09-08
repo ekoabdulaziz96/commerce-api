@@ -1,0 +1,45 @@
+# Use postgres/example user/password credentials
+version: "3.9"
+
+services:
+  localhost:
+    container_name: postgresDocker
+    image: postgres:13.2-alpine
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
+      - POSTGRES_DB=db_notification
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    networks:
+      - databases
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+  #  tty: true
+  #  command: /bin/bash   
+    
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+      
+    networks:
+      - databases
+      
+  redis:
+    image: redis:alpine
+    ports:
+         - 6379:6379
+    volumes:
+        - ./config/redis.conf:/redis.conf
+    command: [ "redis-server", "/redis.conf" ]
+    networks:
+      - databases
+networks:
+  databases:
+    name: databases
+volumes: 
+  pgdata:
