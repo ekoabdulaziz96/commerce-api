@@ -3,7 +3,7 @@ from django.urls import path
 from apps.app_commerce.views import orders, stores
 
 urlpatterns = [
-    #store
+    # store
     path("stores/<str:slug>/", stores.StoreDetail.as_view(), name="store-detail"),
     path("sync-channel/", stores.ChannelSync.as_view(), name="channel-sync"),
     # product
@@ -15,4 +15,3 @@ urlpatterns = [
     path("stores/<str:slug>/orders/", orders.OrderList.as_view(), name="order-list"),
     path("stores/<str:slug>/orders/<str:order_id>/", orders.OrderManage.as_view(), name="order-manage"),
 ]
-

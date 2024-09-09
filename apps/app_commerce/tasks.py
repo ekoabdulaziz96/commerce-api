@@ -26,14 +26,13 @@ def product_bulk_upload_task(store_pk, products):
 
     return "success"
 
+
 @shared_task
 @transaction.atomic
 def open_order_task(orders):
     channel = Channel.objects.filter(slug=orders["channel_slug"]).first()
     order, _ = Order.objects.get_or_create(
-        channel=channel,
-        order_id=orders["order_id"],
-        defaults={"status": "open", "total_amount": 0}
+        channel=channel, order_id=orders["order_id"], defaults={"status": "open", "total_amount": 0}
     )
 
     items = orders.pop("items")
@@ -42,9 +41,9 @@ def open_order_task(orders):
         total_amount += item.pop("total_price")
         OrderItem(
             order=order,
-            product = Product.objects.filter(product_id=item["product_id"]).first(),
+            product=Product.objects.filter(product_id=item["product_id"]).first(),
             quantity=item["quantity"],
-            price=item["price"]
+            price=item["price"],
         ).save()
 
     order.total_amount = total_amount

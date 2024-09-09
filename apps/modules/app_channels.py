@@ -5,12 +5,10 @@ from requests import request
 class AppChannelException(BaseException):
     pass
 
-class AppChannel():
+
+class AppChannel:
     def __init__(self):
-        self.headers = {
-            "Content-Type": "application/json",
-            "Api-Secret": settings.APP_CHANNEL_API_SECRET
-        }
+        self.headers = {"Content-Type": "application/json", "Api-Secret": settings.APP_CHANNEL_API_SECRET}
         self.base_url = settings.APP_CAHNNEL_BASE_URL
 
     def _do_request(self):
@@ -23,27 +21,19 @@ class AppChannel():
             return response.json()
 
         except Exception as err:
-            raise(err)
+            raise (err)
 
     def sync_store(self, obj):
         self.method = "POST"
         self.url = self.base_url + "/api/v1/channels/sync-store/"
-        self.data = {
-            "name": obj.name,
-            "slug": obj.slug,
-            "api_secret": obj.api_secret
-        }
+        self.data = {"name": obj.name, "slug": obj.slug, "api_secret": obj.api_secret}
 
         return self._do_request()
 
     def sync_product_stock(self, obj):
         self.method = "POST"
         self.url = self.base_url + "/api/v1/channels/sync-stock/"
-        self.data = {
-            "product_id": str(obj.product_id),
-            "name": obj.name,
-            "stock": obj.stock
-        }
+        self.data = {"product_id": str(obj.product_id), "name": obj.name, "stock": obj.stock}
         return self._do_request()
 
     def sync_order_status(self, data):

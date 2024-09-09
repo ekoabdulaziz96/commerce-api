@@ -75,7 +75,6 @@ class Product(SafeDeleteModel):
         db_table = "app_commerce_products"
 
     def save(self, keep_deleted=False, **kwargs):
-
         app_channel.sync_product_stock(self)
 
         return super().save(keep_deleted, **kwargs)

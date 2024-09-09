@@ -1,5 +1,5 @@
-from django.test.utils import override_settings
 from unittest import mock
+
 from django.conf import settings
 from rest_framework import status
 from rest_framework.reverse import reverse

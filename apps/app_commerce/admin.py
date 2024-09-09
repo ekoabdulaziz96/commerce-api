@@ -38,7 +38,12 @@ class StoreUserAdmin(admin.ModelAdmin):
 
 
 class ChannelAdmin(admin.ModelAdmin):
-    list_display = ("slug", "name", "types", "display_store",)
+    list_display = (
+        "slug",
+        "name",
+        "types",
+        "display_store",
+    )
     search_fields = ("name",)
     ordering = ["-created_at"]
 
@@ -70,7 +75,7 @@ class ProductAdmin(admin.ModelAdmin):
 
 
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ( "order_id", "total_amount", "status", "display_channel", "display_store")
+    list_display = ("order_id", "total_amount", "status", "display_channel", "display_store")
     search_fields = ("channel__store__name", "channel__name", "channel__slug", "order_id", "status")
     readonly_fields = ("order_id", "channel", "total_amount")
     ordering = ["-created_at"]
