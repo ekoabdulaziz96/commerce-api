@@ -74,8 +74,13 @@ class Product(SafeDeleteModel):
     class Meta:
         db_table = "app_commerce_products"
 
+    def __init__(self, *args, **kwargs):
+        super(Product, self).__init__(*args, **kwargs)
+        self._old_stock = self.stock
+
     def save(self, keep_deleted=False, **kwargs):
-        app_channel.sync_product_stock(self)
+        if self.pk and self._old_stock != self.stock:
+            app_channel.sync_product_stock(self)
 
         return super().save(keep_deleted, **kwargs)
 
