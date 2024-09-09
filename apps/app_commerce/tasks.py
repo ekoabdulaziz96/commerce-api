@@ -39,12 +39,16 @@ def open_order_task(orders):
     total_amount = 0
     for item in items:
         total_amount += item.pop("total_price")
+        product = Product.objects.filter(product_id=item["product_id"]).first()
         OrderItem(
             order=order,
-            product=Product.objects.filter(product_id=item["product_id"]).first(),
+            product=product,
             quantity=item["quantity"],
             price=item["price"],
         ).save()
+
+        product.stock -= item["quantity"]
+        product.save()
 
     order.total_amount = total_amount
     order.save()
