@@ -6,8 +6,9 @@ from rest_framework import serializers
 from apps.app_commerce import settings as app_settings
 from apps.app_commerce.models import Delivery, Order, OrderItem, Product
 from apps.app_commerce.serializers.stores import ChannelSerializer
-from apps.app_commerce.tasks import product_bulk_upload_task
+from apps.app_commerce.tasks import open_order_task, product_bulk_upload_task
 from apps.bases.serializers import BaseModelSerializer, BaseSerializer, ChoiceDisplayField
+from apps.modules.app_channels import app_channel
 
 
 class ProductSerializer(BaseModelSerializer):
@@ -82,7 +83,8 @@ class OrderSerializer(BaseModelSerializer):
 
     def save(self, **kwargs):
         if self.instance and self.instance.status == "pending" and self.validated_data["status"] == "processing":
-            print("trigger app channel to update status and wait for escpedition data")
+            data = {"order_id": self.instance.order_id, "status": self.validated_data["status"]}
+            app_channel.sync_order_status(data)
 
         return super().save(**kwargs)
 
@@ -96,3 +98,27 @@ class OrderDetailSerializer(BaseModelSerializer):
     class Meta:
         model = Order
         fields = ["channel", "items", "deliveries", "order_id", "total_amount", "status"]
+
+
+class OrderItemSyncSerializer(BaseSerializer):
+    product_id = serializers.CharField(required=True)
+    quantity = serializers.IntegerField(required=True)
+
+    def validate(self, attrs):
+        data = super().validate(attrs)
+        product = Product.objects.filter(product_id=data["product_id"]).first()
+        if not product:
+            raise serializers.ValidationError({"product_id": app_settings.MSG_PRODUCT_NOT_FOUND})
+        data["price"] = product.price
+        data["total_price"] = float(product.price) * float(data["quantity"])
+
+        return data
+
+
+class OrderOpenSyncSerializer(BaseSerializer):
+    channel_slug = serializers.CharField(required=True)
+    order_id = serializers.CharField(required=True)
+    items = OrderItemSyncSerializer(many=True)
+
+    def save(self, **kwargs):
+        open_order_task.delay(self.validated_data)

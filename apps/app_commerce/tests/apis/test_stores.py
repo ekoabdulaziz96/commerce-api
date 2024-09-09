@@ -1,3 +1,4 @@
+from unittest import mock
 from rest_framework import status
 from rest_framework.reverse import reverse
 from rest_framework.test import APITestCase
@@ -6,7 +7,8 @@ from apps.app_commerce.tests.factories import StoreFactory
 
 
 class StoreDetailTest(APITestCase):
-    def setUp(self):
+    @mock.patch("apps.modules.app_channels.AppChannel._do_request", return_value="ok")
+    def setUp(self, _):
         store = StoreFactory()
 
         self.headers = {"Api-Secret": store.api_secret}

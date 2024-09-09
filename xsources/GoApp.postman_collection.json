@@ -1,0 +1,2353 @@
+{
+	"info": {
+		"_postman_id": "ef494903-a8b1-42f2-94ab-310c6a870f87",
+		"name": "GoApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9807530",
+		"_collection_link": "https://restless-eclipse-114772.postman.co/workspace/Django~e3eefdbe-289a-479d-ae6b-7604804a8cb6/collection/9807530-ef494903-a8b1-42f2-94ab-310c6a870f87?action=share&source=collection_link&creator=9807530"
+	},
+	"item": [
+		{
+			"name": "Commerce",
+			"item": [
+				{
+					"name": "my-store",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Api-Secret",
+								"value": "test_store_secret",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/commerce/stores/test_store/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"commerce",
+								"stores",
+								"test_store",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "my-store",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Api-Secret",
+										"value": "test_store_secret",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/v1/commerce/stores/test_store/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"commerce",
+										"stores",
+										"test_store",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 08 Sep 2024 03:48:02 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.14"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Accept-Language, Cookie, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "74"
+								},
+								{
+									"key": "Content-Language",
+									"value": "en"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"test store\",\n    \"slug\": \"test_store\",\n    \"api_secret\": \"test_store_secret\"\n}"
+						}
+					]
+				},
+				{
+					"name": "sync-channel",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Api-Secret",
+								"value": "APP_COMMERCE_API_SECRET",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"store_slug\": \"test_store\",\r\n    \"slug\": \"test_marketplace\",\r\n    \"name\": \"test marketplace\",\r\n    \"types\": \"marketplace\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/commerce/sync-channel/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"commerce",
+								"sync-channel",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "sync",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Api-Secret",
+										"value": "API_SECRET_APP_CHANNEL",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"store_slug\": \"test_store\",\r\n    \"slug\": \"test_marketplace\",\r\n    \"name\": \"test marketplace\",\r\n    \"types\": \"marketplace\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/v1/commerce/sync-channel/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"commerce",
+										"sync-channel",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 08 Sep 2024 06:13:56 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.14"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Accept-Language, Cookie, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "164"
+								},
+								{
+									"key": "Content-Language",
+									"value": "en"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"store\": {\n        \"name\": \"test store\",\n        \"slug\": \"test_store\"\n    },\n    \"slug\": \"test_marketplace\",\n    \"name\": \"test marketplace\",\n    \"types\": {\n        \"value\": \"marketplace\",\n        \"display_name\": \"Marketplace\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "product-list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Api-Secret",
+								"value": "test_store_secret",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/commerce/stores/test_store/products/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"commerce",
+								"stores",
+								"test_store",
+								"products",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "product-list",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Api-Secret",
+										"value": "test_store_secret",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/v1/commerce/stores/test_store/products/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"commerce",
+										"stores",
+										"test_store",
+										"products",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 08 Sep 2024 04:05:44 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.14"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Accept-Language, Cookie, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "647"
+								},
+								{
+									"key": "Content-Language",
+									"value": "en"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"count\": 4,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"product_id\": \"74054e4c-86e8-4714-8146-c54423a7342e\",\n            \"name\": \"product baru\",\n            \"description\": \"baru banget\",\n            \"price\": \"10000.00\",\n            \"stock\": 50\n        },\n        {\n            \"product_id\": \"0bd07329-9585-4ae3-9edb-8a8052922af2\",\n            \"name\": \"test product 3\",\n            \"description\": \"test product 3 with seed data\",\n            \"price\": \"20000.00\",\n            \"stock\": 30\n        },\n        {\n            \"product_id\": \"a6accf0b-e4df-41f7-8860-0af0b68ca032\",\n            \"name\": \"test product 2\",\n            \"description\": \"test product 2 with seed data\",\n            \"price\": \"15000.00\",\n            \"stock\": 40\n        },\n        {\n            \"product_id\": \"09e5d4b9-558c-46aa-8179-496b9ae747da\",\n            \"name\": \"test product 1\",\n            \"description\": \"test product 1 with seed data\",\n            \"price\": \"10000.00\",\n            \"stock\": 50\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "product-create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Api-Secret",
+								"value": "test_store_secret",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"product baru\",\r\n    \"description\": \"baru banget\",\r\n    \"price\": 10000,\r\n    \"stock\": 50\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/commerce/stores/test_store/products/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"commerce",
+								"stores",
+								"test_store",
+								"products",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "create",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Api-Secret",
+										"value": "test_store_secret",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"product baru\",\r\n    \"description\": \"baru banget\",\r\n    \"price\": 10000,\r\n    \"stock\": 50\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/v1/commerce/stores/test_store/products/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"commerce",
+										"stores",
+										"test_store",
+										"products",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 08 Sep 2024 04:05:04 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.14"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Accept-Language, Cookie, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "133"
+								},
+								{
+									"key": "Content-Language",
+									"value": "en"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"product_id\": \"74054e4c-86e8-4714-8146-c54423a7342e\",\n    \"name\": \"product baru\",\n    \"description\": \"baru banget\",\n    \"price\": \"10000.00\",\n    \"stock\": 50\n}"
+						}
+					]
+				},
+				{
+					"name": "product-bulk-upload",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Api-Secret",
+								"value": "test_store_secret",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "csv_file",
+									"type": "file",
+									"src": "/C:/Users/ekoab/Downloads/products.csv"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/commerce/stores/test_store/products/bulk-upload",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"commerce",
+								"stores",
+								"test_store",
+								"products",
+								"bulk-upload"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "product-bulk-upload",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Api-Secret",
+										"value": "test_store_secret",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "csv_file",
+											"type": "file",
+											"src": "/C:/Users/ekoab/Downloads/products.csv"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/v1/commerce/stores/test_store/products/bulk-upload",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"commerce",
+										"stores",
+										"test_store",
+										"products",
+										"bulk-upload"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 08 Sep 2024 08:00:41 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.14"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Accept-Language, Cookie, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "31"
+								},
+								{
+									"key": "Content-Language",
+									"value": "en"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "\"upload data still in process.\""
+						}
+					]
+				},
+				{
+					"name": "product-detail",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Api-Secret",
+								"value": "test_store_secret",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"product baru\",\r\n    \"description\": \"baru banget\",\r\n    \"price\": 10000,\r\n    \"stock\": 50\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/commerce/stores/test_store/products/74054e4c-86e8-4714-8146-c54423a7342e",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"commerce",
+								"stores",
+								"test_store",
+								"products",
+								"74054e4c-86e8-4714-8146-c54423a7342e"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "detail",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Api-Secret",
+										"value": "test_store_secret",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/v1/commerce/stores/test_store/products/74054e4c-86e8-4714-8146-c54423a7342e",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"commerce",
+										"stores",
+										"test_store",
+										"products",
+										"74054e4c-86e8-4714-8146-c54423a7342e"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 08 Sep 2024 04:14:01 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.14"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Accept-Language, Cookie, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "133"
+								},
+								{
+									"key": "Content-Language",
+									"value": "en"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"product_id\": \"74054e4c-86e8-4714-8146-c54423a7342e\",\n    \"name\": \"product baru\",\n    \"description\": \"baru banget\",\n    \"price\": \"10000.00\",\n    \"stock\": 50\n}"
+						}
+					]
+				},
+				{
+					"name": "product-update",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Api-Secret",
+								"value": "test_store_secret",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"product baru\",\r\n    \"description\": \"baru banget update\",\r\n    \"price\": 10000,\r\n    \"stock\": 50\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/commerce/stores/test_store/products/74054e4c-86e8-4714-8146-c54423a7342e",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"commerce",
+								"stores",
+								"test_store",
+								"products",
+								"74054e4c-86e8-4714-8146-c54423a7342e"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "update",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Api-Secret",
+										"value": "test_store_secret",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"product baru\",\r\n    \"description\": \"baru banget update\",\r\n    \"price\": 10000,\r\n    \"stock\": 50\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/v1/commerce/stores/test_store/products/74054e4c-86e8-4714-8146-c54423a7342e",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"commerce",
+										"stores",
+										"test_store",
+										"products",
+										"74054e4c-86e8-4714-8146-c54423a7342e"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 08 Sep 2024 04:17:54 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.14"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Accept-Language, Cookie, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "140"
+								},
+								{
+									"key": "Content-Language",
+									"value": "en"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"product_id\": \"74054e4c-86e8-4714-8146-c54423a7342e\",\n    \"name\": \"product baru\",\n    \"description\": \"baru banget update\",\n    \"price\": \"10000.00\",\n    \"stock\": 50\n}"
+						}
+					]
+				},
+				{
+					"name": "order-list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Api-Secret",
+								"value": "test_store_secret",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/commerce/stores/test_store/orders",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"commerce",
+								"stores",
+								"test_store",
+								"orders"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "list",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Api-Secret",
+										"value": "test_store_secret",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/v1/commerce/stores/test_store/orders",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"commerce",
+										"stores",
+										"test_store",
+										"orders"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 08 Sep 2024 04:30:55 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.14"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Accept-Language, Cookie, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "203"
+								},
+								{
+									"key": "Content-Language",
+									"value": "en"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"count\": 1,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"channel_slug\": \"test_marketplace\",\n            \"order_id\": \"test_order_dummy\",\n            \"total_amount\": \"10000.00\",\n            \"status\": {\n                \"value\": \"processing\",\n                \"display_name\": \"Processing\"\n            }\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "order-detail",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Api-Secret",
+								"value": "test_store_secret",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/commerce/stores/test_store/orders/first-order-from-shopee-2/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"commerce",
+								"stores",
+								"test_store",
+								"orders",
+								"first-order-from-shopee-2",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "order-detail",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Api-Secret",
+										"value": "test_store_secret",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/v1/commerce/stores/test_store/orders/test_order_dummy/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"commerce",
+										"stores",
+										"test_store",
+										"orders",
+										"test_order_dummy",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 08 Sep 2024 05:59:30 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.14"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Accept-Language, Cookie, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "620"
+								},
+								{
+									"key": "Content-Language",
+									"value": "en"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"channel\": {\n        \"store\": {\n            \"name\": \"test store\",\n            \"slug\": \"test_store\"\n        },\n        \"slug\": \"test_marketplace\",\n        \"name\": \"test marketplace\",\n        \"types\": {\n            \"value\": \"marketplace\",\n            \"display_name\": \"Marketplace\"\n        }\n    },\n    \"items\": [\n        {\n            \"product\": {\n                \"product_id\": \"09e5d4b9-558c-46aa-8179-496b9ae747da\",\n                \"name\": \"test product 1\",\n                \"description\": \"test product 1 with seed data\"\n            },\n            \"quantity\": 1,\n            \"price\": \"10000.00\"\n        }\n    ],\n    \"deliveries\": [\n        {\n            \"expedition\": \"J&T\",\n            \"receipt_number\": \"12345\",\n            \"address\": null,\n            \"status\": \"process\",\n            \"types\": {\n                \"value\": \"purchase\",\n                \"display_name\": \"Purchase\"\n            }\n        }\n    ],\n    \"order_id\": \"test_order_dummy\",\n    \"total_amount\": \"10000.00\",\n    \"status\": {\n        \"value\": \"processing\",\n        \"display_name\": \"Processing\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "sync-order-open",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Api-Secret",
+								"value": "APP_COMMERCE_API_SECRET",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"order_id\": \"random\", \r\n    \"channel_slug\": \"marketplace-shopee-dotuku\",\r\n    \"items\": [\r\n        {\r\n            \"product_id\": \"0a28264c-2b2b-419c-903b-354e6737539a\", \r\n            \"quantity\": 1\r\n        }, \r\n        {\r\n            \"product_id\": \"09e5d4b9-558c-46aa-8179-496b9ae747da\",\r\n            \"quantity\": 1\r\n        },\r\n        {\r\n            \"product_id\": \"a6accf0b-e4df-41f7-8860-0af0b68ca032\",\r\n            \"quantity\": 1\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/commerce/sync-order/open/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"commerce",
+								"sync-order",
+								"open",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "sync",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Api-Secret",
+										"value": "APP_COMMERCE_API_SECRET",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"order_id\": \"random\", \r\n    \"channel_slug\": \"marketplace-shopee-dotuku\",\r\n    \"items\": [\r\n        {\r\n            \"product_id\": \"0a28264c-2b2b-419c-903b-354e6737539a\", \r\n            \"quantity\": 1\r\n        }, \r\n        {\r\n            \"product_id\": \"09e5d4b9-558c-46aa-8179-496b9ae747da\",\r\n            \"quantity\": 1\r\n        },\r\n        {\r\n            \"product_id\": \"a6accf0b-e4df-41f7-8860-0af0b68ca032\",\r\n            \"quantity\": 1\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/v1/commerce/sync-order/open/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"commerce",
+										"sync-order",
+										"open",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 09 Sep 2024 06:59:29 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.14"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Accept-Language, Cookie, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "30"
+								},
+								{
+									"key": "Content-Language",
+									"value": "en"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "\"Order data still in process.\""
+						}
+					]
+				},
+				{
+					"name": "order-process",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Api-Secret",
+								"value": "test_store_secret",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"processing\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/commerce/stores/test_store/orders/first-order-from-shopee/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"commerce",
+								"stores",
+								"test_store",
+								"orders",
+								"first-order-from-shopee",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "order-process",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Api-Secret",
+										"value": "test_store_secret",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"status\": \"processing\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/v1/commerce/stores/test_store/orders/first-order-from-shopee/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"commerce",
+										"stores",
+										"test_store",
+										"orders",
+										"first-order-from-shopee",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 09 Sep 2024 07:06:47 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.14"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Accept-Language, Cookie, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "167"
+								},
+								{
+									"key": "Content-Language",
+									"value": "en"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"channel_slug\": \"marketplace-shopee-dotuku\",\n    \"order_id\": \"first-order-from-shopee\",\n    \"total_amount\": \"45000.00\",\n    \"status\": {\n        \"value\": \"processing\",\n        \"display_name\": \"Processing\"\n    }\n}"
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "noauth"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Channel",
+			"item": [
+				{
+					"name": "sync-store",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Api-Secret",
+								"value": "APP_CHANNEL_API_SECRET",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"test store\",\r\n    \"slug\": \"test_store\",\r\n    \"api_secret\": \"test_store_secret\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:9000/api/v1/channels/sync-store/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"v1",
+								"channels",
+								"sync-store",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "sync",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Api-Secret",
+										"value": "API_SECRET_APP_COMMERCE",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"test store\",\r\n    \"slug\": \"test_store\",\r\n    \"api_secret\": \"test_store_secret\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:9000/api/v1/channels/sync-store/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "9000",
+									"path": [
+										"api",
+										"v1",
+										"channels",
+										"sync-store",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 09 Sep 2024 02:11:24 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.14"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Accept-Language, Cookie, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "74"
+								},
+								{
+									"key": "Content-Language",
+									"value": "en"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"slug\": \"test_store\",\n    \"name\": \"test store\",\n    \"api_secret\": \"test_store_secret\"\n}"
+						}
+					]
+				},
+				{
+					"name": "channel-detail",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Api-Secret",
+								"value": "test_store_secret",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:9000/api/v1/channels/marketplace-shopee-dotuku/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"v1",
+								"channels",
+								"marketplace-shopee-dotuku",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "detail",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Api-Secret",
+										"value": "test_store_secret",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:9000/api/v1/channels/marketplace-shopee-dotuku/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "9000",
+									"path": [
+										"api",
+										"v1",
+										"channels",
+										"marketplace-shopee-dotuku",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 09 Sep 2024 08:33:53 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.14"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Accept-Language, Cookie, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "325"
+								},
+								{
+									"key": "Content-Language",
+									"value": "en"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"store\": {\n        \"slug\": \"test_store\",\n        \"name\": \"test store\",\n        \"api_secret\": \"test_store_secret\"\n    },\n    \"slug\": \"marketplace-shopee-dotuku\",\n    \"name\": {\n        \"value\": \"shopee\",\n        \"display_name\": \"Shopee\"\n    },\n    \"types\": {\n        \"value\": \"marketplace\",\n        \"display_name\": \"Marketplace\"\n    },\n    \"account_id\": \"123\",\n    \"account_name\": \"dotuku\",\n    \"api_key\": \"dotuku_key\",\n    \"api_secret\": \"dotuku_secret\"\n}"
+						}
+					]
+				},
+				{
+					"name": "channel-stock-list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Api-Secret",
+								"value": "test_store_secret",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:9000/api/v1/channels/marketplace-shopee-dotuku/stocks/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"v1",
+								"channels",
+								"marketplace-shopee-dotuku",
+								"stocks",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "list",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Api-Secret",
+										"value": "test_store_secret",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:9000/api/v1/channels/marketplace-shopee-dotuku/stocks/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "9000",
+									"path": [
+										"api",
+										"v1",
+										"channels",
+										"marketplace-shopee-dotuku",
+										"stocks",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 09 Sep 2024 08:34:01 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.14"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Accept-Language, Cookie, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "774"
+								},
+								{
+									"key": "Content-Language",
+									"value": "en"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"count\": 3,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"channel_product_id\": \"channel_product_1\",\n            \"product_id\": \"0a28264c-2b2b-419c-903b-354e6737539a\",\n            \"name\": \"test product 1\",\n            \"stock\": 50,\n            \"sync_status\": {\n                \"value\": \"pending\",\n                \"display_name\": \"Pending\"\n            },\n            \"last_sync_at\": null,\n            \"err_message\": null\n        },\n        {\n            \"channel_product_id\": \"channel_product_2\",\n            \"product_id\": \"09e5d4b9-558c-46aa-8179-496b9ae747da\",\n            \"name\": \"test product 2\",\n            \"stock\": 40,\n            \"sync_status\": {\n                \"value\": \"pending\",\n                \"display_name\": \"Pending\"\n            },\n            \"last_sync_at\": null,\n            \"err_message\": null\n        },\n        {\n            \"channel_product_id\": \"channel_product_3\",\n            \"product_id\": \"a6accf0b-e4df-41f7-8860-0af0b68ca032\",\n            \"name\": \"test auto update stock\",\n            \"stock\": 998,\n            \"sync_status\": {\n                \"value\": \"success\",\n                \"display_name\": \"Success\"\n            },\n            \"last_sync_at\": \"2024-09-09T15:04:43.999487+07:00\",\n            \"err_message\": null\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "sync-stock",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Api-Secret",
+								"value": "APP_CHANNEL_API_SECRET",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"product_id\": \"a6accf0b-e4df-41f7-8860-0af0b68ca032\",\r\n    \"name\": \"test auto update stock\",\r\n    \"stock\": 998\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:9000/api/v1/channels/sync-stock/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"v1",
+								"channels",
+								"sync-stock",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "sync",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Api-Secret",
+										"value": "API_SECRET_APP_COMMERCE",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"product_id\": \"a6accf0b-e4df-41f7-8860-0af0b68ca032\",\r\n    \"name\": \"test auto update stock\",\r\n    \"stock\": 99\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:9000/api/v1/channels/sync-stock/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "9000",
+									"path": [
+										"api",
+										"v1",
+										"channels",
+										"sync-stock",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 09 Sep 2024 02:06:10 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.14"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Accept-Language, Cookie, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "31"
+								},
+								{
+									"key": "Content-Language",
+									"value": "en"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "\"sync stock still in progress.\""
+						}
+					]
+				},
+				{
+					"name": "order-list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Api-Secret",
+								"value": "test_store_secret",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:9000/api/v1/channels/marketplace-shopee-dotuku/orders/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"v1",
+								"channels",
+								"marketplace-shopee-dotuku",
+								"orders",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "list",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Api-Secret",
+										"value": "test_store_secret",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:9000/api/v1/channels/marketplace-shopee-dotuku/orders/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "9000",
+									"path": [
+										"api",
+										"v1",
+										"channels",
+										"marketplace-shopee-dotuku",
+										"orders",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 09 Sep 2024 08:34:24 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.14"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Accept-Language, Cookie, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "294"
+								},
+								{
+									"key": "Content-Language",
+									"value": "en"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"count\": 3,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"order_id\": \"test_order_dummy\",\n            \"status\": {\n                \"value\": \"pending\",\n                \"display_name\": \"Pending\"\n            }\n        },\n        {\n            \"order_id\": \"random\",\n            \"status\": {\n                \"value\": \"open\",\n                \"display_name\": \"open\"\n            }\n        },\n        {\n            \"order_id\": \"first-order-from-shopee\",\n            \"status\": {\n                \"value\": \"open\",\n                \"display_name\": \"open\"\n            }\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "webhook-order-shopee",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Api-Secret",
+								"value": "dotuku_secret",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"order_id\": \"first-order-from-shopee\",\r\n    \"items\" :[\r\n        {\r\n            \"product_id\": \"channel_product_1\",\r\n            \"quantity\": 1\r\n        },\r\n        {\r\n            \"product_id\": \"channel_product_2\",\r\n            \"quantity\": 1\r\n        },\r\n        {\r\n            \"product_id\": \"channel_product_3\",\r\n            \"quantity\": 1\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:9000/webhook/order/shopee",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"webhook",
+								"order",
+								"shopee"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "webhook-order-shopee",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Api-Secret",
+										"value": "dotuku_secret",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"order_id\": \"first-order-from-shopee\",\r\n    \"items\" :[\r\n        {\r\n            \"product_id\": \"channel_product_1\",\r\n            \"quantity\": 1\r\n        },\r\n        {\r\n            \"product_id\": \"channel_product_2\",\r\n            \"quantity\": 1\r\n        },\r\n        {\r\n            \"product_id\": \"channel_product_3\",\r\n            \"quantity\": 1\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:9000/webhook/order/shopee",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "9000",
+									"path": [
+										"webhook",
+										"order",
+										"shopee"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 09 Sep 2024 07:04:13 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.14"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Accept-Language, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "86"
+								},
+								{
+									"key": "Content-Language",
+									"value": "en"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"order_id\": \"first-order-from-shopee\",\n    \"status\": {\n        \"value\": \"open\",\n        \"display_name\": \"open\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "sync-order-status",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Api-Secret",
+								"value": "APP_CHANNEL_API_SECRET",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"order_id\": \"first-order-from-shopee\",\r\n    \"status\": \"pending\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:9000/api/v1/channels/sync-order/status/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"v1",
+								"channels",
+								"sync-order",
+								"status",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "sync",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Api-Secret",
+										"value": "APP_CHANNEL_API_SECRET",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"order_id\": \"first-order-from-shopee\",\r\n    \"status\": \"pending\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:9000/api/v1/channels/sync-order/status/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "9000",
+									"path": [
+										"api",
+										"v1",
+										"channels",
+										"sync-order",
+										"status",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 09 Sep 2024 08:48:48 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.14"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Accept-Language, Cookie, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "92"
+								},
+								{
+									"key": "Content-Language",
+									"value": "en"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"order_id\": \"first-order-from-shopee\",\n    \"status\": {\n        \"value\": \"pending\",\n        \"display_name\": \"Pending\"\n    }\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}

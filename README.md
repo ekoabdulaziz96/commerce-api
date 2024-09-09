@@ -57,7 +57,7 @@ Make sure you already installed **python3.12** or higher in your machine
     ```
 7. run server
     ```sh
-    python manage.py runserver
+    python manage.py runserver 8000
     ```
 8. run server celery worker
     ```sh
@@ -89,6 +89,7 @@ Make sure you already installed **python3.12** or higher in your machine
 ### Need to know
 - postmant collection in folder `xsources`
 - we use Api-Secret key in header for simple authenticate (check the postmant collection)
+- you can read more, about api explanation in note.txt folder `xsources`
 <br>
 
 ## How to set connection DB

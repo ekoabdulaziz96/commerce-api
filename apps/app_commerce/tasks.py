@@ -1,6 +1,7 @@
 from celery import shared_task
+from django.db import transaction
 
-from apps.app_commerce.models import Product, Store
+from apps.app_commerce.models import Channel, Order, OrderItem, Product, Store
 
 
 @shared_task
@@ -24,3 +25,27 @@ def product_bulk_upload_task(store_pk, products):
         )
 
     return "success"
+
+@shared_task
+@transaction.atomic
+def open_order_task(orders):
+    channel = Channel.objects.filter(slug=orders["channel_slug"]).first()
+    order, _ = Order.objects.get_or_create(
+        channel=channel,
+        order_id=orders["order_id"],
+        defaults={"status": "open", "total_amount": 0}
+    )
+
+    items = orders.pop("items")
+    total_amount = 0
+    for item in items:
+        total_amount += item.pop("total_price")
+        OrderItem(
+            order=order,
+            product = Product.objects.filter(product_id=item["product_id"]).first(),
+            quantity=item["quantity"],
+            price=item["price"]
+        ).save()
+
+    order.total_amount = total_amount
+    order.save()

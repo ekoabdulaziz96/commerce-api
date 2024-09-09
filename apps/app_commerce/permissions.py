@@ -20,5 +20,4 @@ class IsAuthenticatedAppChannel(BasePermission):
 
     def has_permission(self, request, view):
         api_secret = request.headers.get("Api-Secret", None)
-
-        return api_secret == settings.API_SECRET_APP_CHANNEL
+        return api_secret == settings.APP_COMMERCE_API_SECRET

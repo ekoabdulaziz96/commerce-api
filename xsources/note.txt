@@ -1,0 +1,16 @@
+1. We usee api-secret for auth in header, please make sure your fill it with correct value
+    - app commerce
+        - api_secret is based on data api-secret in Store Table
+        - api_secret app channel is in .env file
+
+    - app channel
+        - api_secret is based on data api-secret in Channel Table
+        - api_secret for app commerce is in .env file
+    
+2. api sync to communicate between app
+
+3. the both app are less validation, less handle exception, prefer for positive case 
+
+4. example case order
+    - (app-channel) Trigger webhook from shopee -> forward to app_commerce
+    - (app-commerce) Trigger update order to process -> forward to app_channel

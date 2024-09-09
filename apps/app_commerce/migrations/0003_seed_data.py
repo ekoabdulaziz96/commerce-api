@@ -21,16 +21,16 @@ def seed_data_commerce(apps, schema_editor):
 
     StoreUserModel.objects.get_or_create(user=user, store=store)
     
-    channel, _ = ChannelModel.objects.get_or_create(slug="test_marketplace", store=store, defaults={"name": "test marketplace", "types": "marketplace"})
+    channel, _ = ChannelModel.objects.get_or_create(slug="marketplace-shopee-dotuku", store=store, defaults={"name": "shopee", "types": "marketplace"})
     
-    product, _ = ProductModel.objects.get_or_create(name="test product 1", store=store, defaults={
-        "description": "test product 1 with seed data", "price": 10000, "stock": 50
+    product, _ = ProductModel.objects.get_or_create(product_id="0a28264c-2b2b-419c-903b-354e6737539a", store=store, defaults={
+        "name": "test product 1", "description": "test product 1 with seed data", "price": 10000, "stock": 50
     })
-    ProductModel.objects.get_or_create(name="test product 2", store=store, defaults={
-        "description": "test product 2 with seed data", "price": 15000, "stock": 40
+    ProductModel.objects.get_or_create(product_id="09e5d4b9-558c-46aa-8179-496b9ae747da", store=store, defaults={
+        "name": "test product 2", "description": "test product 2 with seed data", "price": 15000, "stock": 40
     })
-    ProductModel.objects.get_or_create(name="test product 3", store=store, defaults={
-        "description": "test product 3 with seed data", "price": 20000, "stock": 30
+    ProductModel.objects.get_or_create(product_id="a6accf0b-e4df-41f7-8860-0af0b68ca032", store=store, defaults={
+        "name": "test product 3", "description": "test product 3 with seed data", "price": 20000, "stock": 30
     })
 
     order, _ = OrderModel.objects.get_or_create(order_id="test_order_dummy", defaults={
@@ -67,7 +67,7 @@ def unseed_data_commerce(apps, schema_editor):
 
 class Migration(migrations.Migration):
     dependencies = [
-        ("app_commerce", "0001_initial"),
+        ("app_commerce", "0002_update_table_attr"),
     ]
 
     operations = [

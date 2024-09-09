@@ -12,14 +12,14 @@ from apps.app_commerce.models import (
 
 
 class StoreAdmin(admin.ModelAdmin):
-    list_display = ("name", "slug", "api_secret")
+    list_display = ("slug", "name", "api_secret")
     search_fields = ("name",)
     readonly_fields = ("slug",)
     ordering = ["-created_at"]
 
 
 class StoreUserAdmin(admin.ModelAdmin):
-    list_display = ("display_store", "display_user", "display_user_email")
+    list_display = ("display_user", "display_store", "display_user_email")
     search_fields = ("store__slug", "user__username", "user__email")
     ordering = ["-created_at"]
 
@@ -38,7 +38,7 @@ class StoreUserAdmin(admin.ModelAdmin):
 
 
 class ChannelAdmin(admin.ModelAdmin):
-    list_display = ("display_store", "name", "types")
+    list_display = ("slug", "name", "types", "display_store",)
     search_fields = ("name",)
     ordering = ["-created_at"]
 
@@ -58,11 +58,8 @@ class ChannelAdmin(admin.ModelAdmin):
 
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ("display_store", "name", "price", "stock")
-    search_fields = (
-        "product_id",
-        "name",
-    )
+    list_display = ("product_id", "name", "price", "stock", "display_store")
+    search_fields = ("product_id", "name")
     readonly_fields = ("product_id",)
     ordering = ["-created_at"]
 
@@ -73,7 +70,7 @@ class ProductAdmin(admin.ModelAdmin):
 
 
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ("display_store", "display_channel", "order_id", "total_amount", "status")
+    list_display = ( "order_id", "total_amount", "status", "display_channel", "display_store")
     search_fields = ("channel__store__name", "channel__name", "channel__slug", "order_id", "status")
     readonly_fields = ("order_id", "channel", "total_amount")
     ordering = ["-created_at"]

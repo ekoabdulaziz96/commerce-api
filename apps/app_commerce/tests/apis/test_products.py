@@ -1,3 +1,4 @@
+from unittest import mock
 from rest_framework import status
 from rest_framework.reverse import reverse
 from rest_framework.test import APITestCase
@@ -6,7 +7,8 @@ from apps.app_commerce.tests.factories import ProductFactory, StoreFactory
 
 
 class ProductListTest(APITestCase):
-    def setUp(self):
+    @mock.patch("apps.modules.app_channels.AppChannel._do_request", return_value="ok")
+    def setUp(self, _):
         self.store = StoreFactory()
         ProductFactory.create_batch(5, store=self.store)
 
@@ -22,14 +24,16 @@ class ProductListTest(APITestCase):
 
 
 class ProductCreateTest(APITestCase):
-    def setUp(self):
+    @mock.patch("apps.modules.app_channels.AppChannel._do_request", return_value="ok")
+    def setUp(self, _):
         self.store = StoreFactory()
 
         self.headers = {"Api-Secret": self.store.api_secret}
         self.complete_url = reverse("app_commerce:product-list-create", args=[self.store.slug])
         self.payload = {"name": "Product Unittest", "description": "like new", "price": 10000, "stock": 50}
 
-    def test_success(self):
+    @mock.patch("apps.modules.app_channels.AppChannel._do_request", return_value="ok")
+    def test_success(self, _):
         response = self.client.post(self.complete_url, data=self.payload, headers=self.headers)
 
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
@@ -38,7 +42,8 @@ class ProductCreateTest(APITestCase):
 
 
 class ProductDetailTest(APITestCase):
-    def setUp(self):
+    @mock.patch("apps.modules.app_channels.AppChannel._do_request", return_value="ok")
+    def setUp(self, _):
         self.store = StoreFactory()
         self.product = ProductFactory(store=self.store, name="Product Unittest Detail")
 
@@ -54,7 +59,8 @@ class ProductDetailTest(APITestCase):
 
 
 class ProductUpdateTest(APITestCase):
-    def setUp(self):
+    @mock.patch("apps.modules.app_channels.AppChannel._do_request", return_value="ok")
+    def setUp(self, _):
         self.store = StoreFactory()
         self.product = ProductFactory(store=self.store)
 
@@ -62,7 +68,8 @@ class ProductUpdateTest(APITestCase):
         self.complete_url = reverse("app_commerce:product-manage", args=[self.store.slug, self.product.product_id])
         self.payload = {"name": "Product Unittest Updated", "description": "like new", "price": 10000, "stock": 50}
 
-    def test_success(self):
+    @mock.patch("apps.modules.app_channels.AppChannel._do_request", return_value="ok")
+    def test_success(self, _):
         response = self.client.patch(self.complete_url, data=self.payload, headers=self.headers)
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)

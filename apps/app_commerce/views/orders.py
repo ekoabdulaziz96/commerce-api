@@ -4,9 +4,10 @@ from rest_framework.response import Response
 
 from apps.app_commerce.models import Order, Product
 from apps.app_commerce.paginations import OrderPagination, ProductPagination
-from apps.app_commerce.permissions import IsAuthenticatedStore
+from apps.app_commerce.permissions import IsAuthenticatedAppChannel, IsAuthenticatedStore
 from apps.app_commerce.serializers.orders import (
     OrderDetailSerializer,
+    OrderOpenSyncSerializer,
     OrderSerializer,
     ProductBulkUploadSerializer,
     ProductSerializer,
@@ -55,8 +56,6 @@ class ProductManage(generics.RetrieveUpdateAPIView):
     serializer_class = ProductSerializer
     lookup_field = "product_id"
     queryset = Product.objects.all()
-    ordering = ("-created_at",)
-    search_fields = ["name", "slug"]
 
 
 class OrderList(generics.ListAPIView, MixinStore):
@@ -74,8 +73,6 @@ class OrderList(generics.ListAPIView, MixinStore):
 class OrderManage(generics.RetrieveUpdateAPIView):
     permission_classes = [IsAuthenticatedStore]
     lookup_field = "order_id"
-    ordering = ("-created_at",)
-    search_fields = ["name", "slug"]
 
     def get_serializer_class(self):
         if self.request.method == "GET":
@@ -88,3 +85,16 @@ class OrderManage(generics.RetrieveUpdateAPIView):
             "order_items", "order_deliveries"
         )
         return queryset
+
+
+class OrderOpenSync(generics.CreateAPIView):
+    permission_classes = [IsAuthenticatedAppChannel]
+    serializer_class = OrderOpenSyncSerializer
+
+    def post(self, request, *args, **kwargs):
+
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+
+        return Response("Order data still in process.", status=status.HTTP_200_OK)
